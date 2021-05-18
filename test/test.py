@@ -1,3 +1,5 @@
+# TODO
 print("Hello World!")
-R = 12
+# FIX
+R = 12 # Константа
 print(R)
