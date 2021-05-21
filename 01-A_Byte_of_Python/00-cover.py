@@ -245,3 +245,4 @@ https://wombat.org.ua/AByteOfPython/translations.html """
     [3]	Jet Propulsion Laboratory (прим.перев.)
     [4]	Deep Space Network (прим.перев.)
     [5]	3-clause BSD license (прим.перев.) """
+    
