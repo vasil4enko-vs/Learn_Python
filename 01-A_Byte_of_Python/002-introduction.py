@@ -182,4 +182,4 @@ wiki, посвящённой Python 3. """
 """ Примечания """
 
 
-""" [1]	"Monty Python's Flying Circus" (прим.перев.) """
+""" [1]	"Monty Python's Flying Circus" (прим. перев.) """
