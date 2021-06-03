@@ -11,7 +11,9 @@
 Автор русского перевода - Владимир Смоляр[2]
 Настоящий перевод основан на версии 2.0 оригинальной книги и имеет версию 2.0.2
 Свежую версию оригинала книги можно просмотреть здесь:
-https://python.swaroopch.com/ """
+https://python.swaroopch.com/
+
+"""
 
 
 """ Кто читает "A Byte of Python"? """
@@ -168,7 +170,9 @@ Python.")
     Оклахомы
     - Курс "Обработка геоданных" в Университете штата Мичиган
     - Курс "Многоагентные системы семантической паутины" в Университете
-    Эдинбурга """
+    Эдинбурга
+
+"""
 
 
 """ Лицензия """
@@ -192,7 +196,9 @@ Attribution-Share Alike 3.0 Unported.
     адресу.
     - Все фрагменты программ/сценарии, представленные в этой книге,
     распространяются на условиях Модифицированной лицензии BSD[5], если явно
-    не указано обратное. """
+    не указано обратное.
+
+"""
 
 
 """ Читать """
@@ -200,7 +206,9 @@ Attribution-Share Alike 3.0 Unported.
 
 """ Вы можете приступить к чтению книги в браузере прямо сейчас:
 http://svp.pp.ua/AByteOfPython/preface.html
-Запасная ссылка: http://wombat.org.ua/AByteOfPython/preface.html """
+Запасная ссылка: http://wombat.org.ua/AByteOfPython/preface.html
+
+"""
 
 
 """ Купить книгу """
@@ -209,7 +217,9 @@ http://svp.pp.ua/AByteOfPython/preface.html
 """ Чтобы иметь возможность почитать эту книгу без подключения к Интернету, а
 также поддержать её дальнейшую разработку и усовершенствование, вы можете
 купить её печатный вариант (на английском языке):
-http://www.swaroopch.com/buybook """
+http://www.swaroopch.com/buybook
+
+"""
 
 
 """ Скачать """
@@ -223,7 +233,9 @@ http://www.swaroopch.com/buybook """
     http://svp.pp.ua/AByteOfPython/AByteofPythonRussian.epub
     Запасная ссылка:
     http://wombat.org.ua/AByteOfPython/AByteofPythonRussian.epub
-    - Полный исходник: https://github.com/swaroopch/byte_of_python """
+    - Полный исходник: https://github.com/swaroopch/byte_of_python
+
+"""
 
 
 """ Книга на вашем родном языке """
@@ -231,7 +243,9 @@ http://www.swaroopch.com/buybook """
 
 """ Если вы хотите почитать эту книгу или помочь перевести её на другие языки,
 перейдите на страницу Переводы:
-https://wombat.org.ua/AByteOfPython/translations.html """
+https://wombat.org.ua/AByteOfPython/translations.html
+
+"""
 
 
 """ Примечания """
@@ -244,11 +258,16 @@ https://wombat.org.ua/AByteOfPython/translations.html """
     присылать на e-mail: v_2e-at-ukr-dot-net.
     [3]	Jet Propulsion Laboratory (прим.перев.)
     [4]	Deep Space Network (прим.перев.)
-    [5]	3-clause BSD license (прим.перев.) """
+    [5]	3-clause BSD license (прим.перев.)
+
+"""
 
 
 """ ----------------------------------------------------------------------
-VVS - Примечания """
+VVS - Примечания
 
-""" Задачи для закрепления материала брал с сайта:
-https://pymanual.github.io """
+"""
+
+""" Задачи для закрепления материала брал с сайта: https://pymanual.github.io
+
+"""
