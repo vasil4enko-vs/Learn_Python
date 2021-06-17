@@ -162,7 +162,7 @@ helloworld.py и нажмите "Выполнить". Вы должны увид
 
 """
 
-""" 01-A_Byte_of_Python/Images/04.1-komodo-edit-hello-world.png """
+""" 01_A_Byte_of_Python/images/04.1_komodo_edit_hello_world.png """
 
 """ Но всё-таки лучше редактировать программу в Komodo Edit, а запускать в
 терминале:
