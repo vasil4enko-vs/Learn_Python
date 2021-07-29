@@ -1,3 +1,5 @@
+"""Поток команд. - Оператор while."""
+
 number = 23
 running = True
 
