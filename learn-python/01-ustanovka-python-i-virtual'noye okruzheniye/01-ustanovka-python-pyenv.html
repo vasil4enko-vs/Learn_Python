@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>pyenv - менеджер версий для Python</title>
+    </head>
+    <body>
+        <h1>Установка Python и назначение версии по умолчанию с помощью pyenv</h1>
+        <h2>Коротко о pyenv</h2>
+        <p>
+            Если Вы используете macOS или Linux, то у Вас, скорее всего, в системе изначально будет
+            установлен Python. Но скорее всего Вы столкнётесь с Python второй версии или даже
+            третьей, но не самой актуальной. К тому же для работы в разных проектах Вам могут
+            понадобиться разные версии интерпретатора Python.
+        </p>
+        <p>
+            В ОС Windows Вы и вовсе столкнётесь с отсутствием Python, если Вы, конечно, не
+            устанавливали его ранее.
+        </p>
+        <p>Поэтому начнём с установки интерпретатора Python.</p>
+        <p>
+            В некоторых ОС можно установить Python при помощи пакетного менеджера. Но доступны будут
+            только поддерживаемые мейнтейнерами репозиториев версии. А это не всегда может нас
+            устроить.
+        </p>
+        <p>
+            И тут на помощь нам придёт простой менеджер версий
+            <a href="https://github.com/pyenv/pyenv"> pyenv</a>.
+        </p>
+        <p>pyenv - утилита, которая, по словам её автора, позволяет:</p>
+        <ul>
+            <li>
+                Позволяет <strong>изменить глобальную версию Python</strong> для каждого
+                пользователя.
+            </li>
+            <li>
+                Позволяет установить
+                <strong> определённую версию Python для каждого проекта</strong>.
+            </li>
+            <li>
+                Позволяет <strong>переопределить версию Python</strong> с помощью переменной среды.
+            </li>
+            <li>
+                Ищет команды из <strong>нескольких версий Python одновременно</strong>. Это может
+                быть полезно для тестирования разных версий Python с помощью
+                <a href="https://pypi.python.org/pypi/tox">tox</a>.
+            </li>
+        </ul>
+        <p>
+            Для нас сейчас важно, что pyenv даёт нам возможность
+            <strong>устанавливать, практически, все известные науке, версии Python</strong> и
+            <strong>назначать любую из установленных - глобально</strong>, а при необходимости
+            <strong>
+                назначать нужные версии Python локально для отдельных директорий (проектов)</strong
+            >.
+        </p>
+        <p>Нужно сразу заметить, что pyenv не будет работать в ОС Windows. Но и тут есть выход.</p>
+        <p>
+            Вы можете использовать порт pyenv для Windows -
+            <a href="https://github.com/pyenv-win/pyenv-win"> pyenv-win</a>.
+        </p>
+        <p>
+            Пользователи же macOS и Linux могут установить оригинальный pyenv по следующей
+            <a href="https://github.com/pyenv/pyenv/#installation"> инструкции</a>.
+        </p>
+        <p>
+            Ну, а мы рассмотрим пример установки pyenv для Linux-дистрибутива
+            <a href="https://www.opensuse.org/"> openSUSE</a>, которым я с удовольствием пользуюсь,
+            чего и Вам желаю.
+        </p>
+        <h2>Установка pyenv в openSUSE</h2>
+        <h3>Предварительные действия</h3>
+        <p>
+            Чтобы pyenv мог правильно установить Python, Вы должны
+            <a href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment">
+                <strong> установить зависимости сборки Python</strong></a
+            >:
+        </p>
+        <pre>
+            <code>
+$ sudo zypper install gcc automake bzip2 libbz2-devel xz xz-devel openssl-devel ncurses-devel \
+readline-devel zlib-devel tk-devel libffi-devel sqlite3-devel
+            </code>
+        </pre>
+        <h3>Автоматический установщик - pyenv-installer</h3>
+        <p>
+            Установить pyenv в openSUSE можно несколькими способами. Я же предлагаю Вам
+            воспользоваться -
+            <a href="https://github.com/pyenv/pyenv-installer"> pyenv-installer</a>.
+        </p>
+        <p>
+            Первым делом необходимо знать, что
+            <strong>pyenv устанавливается в домашний каталог пользователя, там и работает</strong>.
+            Поэтому все
+            <strong>команды в терминале необходимо выполнять от обычного пользователя</strong> -
+            никаких "sudo".
+        </p>
+        <p>
+            После <strong>правильной установки необходимых зависимостей</strong> перейдём,
+            непосредственно, к <strong>установке pyenv</strong>:
+        </p>
+        <pre><code>$ curl https://pyenv.run | bash</code></pre>
+        <p>Эта команда установит pyenv в каталог ~/.pyenv.</p>
+        <p>После установки перезапускаем оболочку, чтобы изменения PATH вступили в силу:</p>
+        <pre><code>$ exec $SHELL</code></pre>
+        <p>Теперь, Вы можете начать использовать pyenv...</p>
+        <p>Ну, так написано в README.rst для pyenv-installer...</p>
+        <p>
+            А вот после того как я перелогинился в своей учётной записи openSUSE, я обнаружил, что
+            мой любимый шелл zsh шлёт мне привет в виде сообщения:
+        </p>
+        <pre>
+            <code>
+Found pyenv, but it is badly configured (pyenv command not found in $PATH). pyenv might not
+work correctly for non-interactive shells (for example, when run from a script
+To fix this message, add these lines to the '.profile' and '.zprofile' files
+in your home director
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path
+You'll need to restart your user session for the changes to take effect.
+For more information go to https://github.com/pyenv/pyenv/#installation.
+            </code>
+        </pre>
+        <p>
+            Перейдя по указанной
+            <a href="https://github.com/pyenv/pyenv/#installation"> ссылке</a> действительно можно
+            обнаружить, что в "2. Configure your shell's environment for Pyenv - For Zsh: - Other
+            OSes:" указано:
+        </p>
+        <pre>
+            <code>
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+echo 'eval "$(pyenv init --path)"' >> ~/.zprofi
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+echo 'eval "$(pyenv init --path)"' >> ~/.profi
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+            </code>
+        </pre>
+        <p>В принципе, тоже что и выдал нам шелл, но добавилась команда для файла ~/.zshrc.</p>
+        <p>Выполним в терминале эти последние семь команд и снова перелогинимся в системе.</p>
+        <p>
+            <strong>Примечание:</strong> Если у Вас другая ОС и (или) другая командная оболочка
+            (shell), то выбирайте в
+            <a href="https://github.com/pyenv/pyenv/#installation"> инструкции</a> список команд,
+            который подходит в Вашем случае.
+        </p>
+        <p><strong>Проверим установку pyenv</strong> командой:</p>
+        <pre><code>$ pyenv --version</code></pre>
+        <p>Получим результат:</p>
+        <pre><code>$ pyenv 2.2.4-1</code></pre>
+        <p>Теперь всё работает без лишних вопросов.</p>
+        <h3>Обновление pyenv</h3>
+        <p><strong>Для обновления pyenv</strong> необходимо выполнить команду:</p>
+        <pre><code>$ pyenv update</code></pre>
+        <h3>Удаление pyenv</h3>
+        <p>
+            Если окажется, что pyenv Вам больше не нужен, то <strong> удалить</strong> его можно
+            командой:
+        </p>
+        <pre><code>$ rm -fr ~/.pyenv</code></pre>
+        <p>Но мы этого пока делать не будем...</p>
+        <h2>Основы работы с pyenv</h2>
+        <h3>Установка нужных версий Python</h3>
+        <p>
+            Для начала посмотрим какие версии Python уже установленны в системе. Для этого выполним
+            в терминале команду:
+        </p>
+        <pre><code>$ python -V</code></pre>
+        <p>Я получил ответ:</p>
+        <pre><code>Python 2.7.18</code></pre>
+        <p>Узнаем, что у нас с 3-ей версией Python:</p>
+        <pre><code>$ python3 -V</code></pre>
+        <p>Ответ:</p>
+        <pre><code>Python 3.8.12</code></pre>
+        <p>Теперь посмотрим, какие версии Python pyenv может установить:</p>
+        <pre><code>$ pyenv install --list</code></pre>
+        <p>Получаем запрошенный список:</p>
+        <pre>
+            <code>
+Available versions:
+2.1.3
+2.2.3
+2.3.7
+2.4.0
+2.4.1
+...
+3.9.9
+3.9.10
+3.10.0
+3.10-dev
+3.10.1
+3.10.2
+3.11.0a4
+3.11-dev
+activepython-2.7.14
+activepython-3.5.4
+activepython-3.6.0
+anaconda-1.4.0
+anaconda-1.5.0
+...
+            </code>
+        </pre>
+        <p>Список довольно длинный, поэтому здесь приведён в сильно сокращённом виде.</p>
+        <p>
+            Здесь надо пояснить, что просто номером версии, например, 2.4.0 или 3.11-dev,
+            обозначаются версии самой распространённой реализации интерпретатора Python - CPython.
+            Но если Вам нужно что-то более экзотическое, то тут Вы можете найти и другие
+            интерпретаторы языка Python. В таком случае перед номером версии будет указано название
+            интерпретатора, например, stackless-3.7.5 или activepython-3.6.0.
+        </p>
+        <p>Выберем для установки версию 3.10.2 и, соответственно, установим:</p>
+        <pre><code>$ pyenv install 3.10.2</code></pre>
+        <p>
+            Придётся немного подождать... Ведь устанавливаемая версия Python будет скачана из
+            <a href="https://www.python.org/ftp/python/">https://www.python.org/ftp/python/</a> и
+            скомпилирована из исходного кода.
+        </p>
+        <p>
+            В результате выполнения последней команды нужная нам версия Python-3.10.2 установлена в
+            директорию /home/user/.pyenv/versions/.
+        </p>
+        <p>Проверим, что это действительно так командой:</p>
+        <pre><code>$ pyenv versions</code></pre>
+        <p>Мой вывод:</p>
+        <pre>
+            <code>
+* system (set by /home/user/.pyenv/version)
+  3.10.2
+            </code>
+        </pre>
+        <p>
+            В этом выводе мы видим установленный нами Python 3.10.2. При необходимости можно
+            установить и несколько других версий Python.
+        </p>
+        <p>
+            Также, в этом сообщении терминала, по отметке "*" можно определить, что глобально по
+            умолчанию назначены системные версии Python. Эти версии мы узнали ранее из вывода команд
+            "<em>python -V</em>" и "<em>python3 -V</em>". И, что интересно, мы можем их изменить,
+            если нужно.
+        </p>
+        <h4>Изменение версии Python глобально</h4>
+        <p><strong>Изменить глобально версию Python</strong>, на версию 3.10.2 можно командой:</p>
+        <pre><code>$ pyenv global 3.10.2</code></pre>
+        <p>При необходимости можно сделать активными сразу несколько версий одновременно:</p>
+        <pre><code>$ pyenv global 3.10.2 2.7.18</code></pre>
+        <p>После этой команды глобально версии Python по умолчанию будут выглядеть так:</p>
+        <pre>
+            <code>
+$ python -V
+Python 3.10.2
+$ python3 -V
+Python 3.10.2
+$ python2 -V
+Python 2.7.18
+            </code>
+        </pre>
+        <p>
+            Коротко говоря, после выполнения команды "<em>pyenv global 3.10.2 2.7.18</em>", первая
+            указанная в команде версия Python займёт все подходящие ей имена, а вторая - подходящие
+            ей из оставшихся имён.
+        </p>
+        <p>Ну, а теперь первая задача для Вас.</p>
+        <p><strong>Задача 1.1.</strong></p>
+        <p>
+            <strong>Условие задачи:</strong> Вернуть версии Python в то состояние, в котором они
+            были до наших опытов.
+        </p>
+        <details>
+            <summary><strong>Ответ: ...</strong></summary>
+            <p>В моём случае нужно выполнить команду:</p>
+            <pre>$ pyenv global 2.7.18 3.8.12</pre>
+            <p>Вы должны подставить свои изначальные версии Python.</p>
+        </details>
+        <p>
+            После выполнения задачи стоит проверить полученный результат, используя уже известные
+            Вам команды.
+        </p>
+        <p>
+            Но далеко не всегда приемлемо изменять версию Python глобально. К тому же, если Вы
+            работаете над несколькими проектами и в каждом нужна своя версия интерпретатора, то
+            каждый раз менять версию Python глобально будет утомительно. Да и можно просто
+            запутаться.
+        </p>
+        <p>Поэтому, в большинстве случаев, лучше изменять версию Python для конкретного проекта.</p>
+        <h4>Изменение версии Python локально</h4>
+        <p>Создадим директорию:</p>
+        <pre><code>mkdir my_project</code></pre>
+        <p>И перейдём в неё:</p>
+        <pre><code>cd my_project</code></pre>
+        <p>Проверим, для чистоты эксперимента версию Python:</p>
+        <pre>
+            <code>
+$ python -V
+Python 2.7.18
+$ python2 -V
+Python 2.7.18
+$ python3 -V
+Python 3.8.12
+            </code>
+        </pre>
+        <p>
+            И изменим в этой директории для нашего будущего проекта версию интерпретатора Python
+            локально на 3.10.2:
+        </p>
+        <pre><code>pyenv local 3.10.2</code></pre>
+        <p>Теперь проверим, что у нас получилось:</p>
+        <pre>
+            <code>
+$ python -V
+Python 3.10.2
+$ python2 -V
+Python 2.7.18
+$ python3 -V
+Python 3.10.2
+            </code>
+        </pre>
+        <p>Как видите, версия по умолчанию у нас - 3.10.2.</p>
+        <p>Посмотрим, что изменилось в нашей директории:</p>
+        <pre>
+            <code>
+$ ls -a
+.  ..  .python-version
+            </code>
+        </pre>
+        <p>У нас появился скрытый файл <em>.python-version</em></p>
+        <p>Посмотрим его содержимое:</p>
+        <pre>
+            <code>
+$ cat .python-version
+3.10.2
+            </code>
+        </pre>
+        <p>
+            Для полного понимания какую версию активирует <em>pyenv</em> удобно использовать
+            команду:
+        </p>
+        <pre>
+            <code>
+$ pyenv version
+3.10.2 (set by /home/user/projects/GitHub-Python/Learn_Python/my_project/.python-version)
+            </code>
+        </pre>
+        <p>
+            Как видите, в директории my_project всё работает. Но это никак не влияет на версию
+            Python по умолчанию за пределами этой директории.
+        </p>
+        <p>Проверим. Выйдем из нашей директории и сделаем проверку:</p>
+        <pre>
+            <code>
+$ cd ..
+$ python -V
+Python 2.7.18
+$ python2 -V
+Python 2.7.18
+$ python3 -V
+Python 3.8.12
+            </code>
+        </pre>
+        <p>Ну, что сказать? Всё работает как и должно.</p>
+        <p>
+            И конечно же, как и случае с глобальной конфигурацией, локально можно назначать
+            несколько версий Python.
+        </p>
+        <p>Некоторые полезные команды pyenv:</p>
+        <ul>
+            <li>commands - Список всех доступных команд pyenv</li>
+            <li>local - Установить или показать локальную версию Python</li>
+            <li>global - Установить или показать глобальную версию Python</li>
+            <li>shell - Установить или показать версию Python для оболочки</li>
+            <li>install - Установить версию Python с помощью python-build</li>
+            <li>uninstall - Удалить определенную версию Python</li>
+            <li>rehash - Rehash pyenv shims (запустите после установки исполняемых файлов)</li>
+            <li>version - Показать текущую версию Python и ее происхождение</li>
+            <li>versions - Список всех версий Python, доступных для pyenv</li>
+            <li>which - Отображает полный путь к исполняемому файлу</li>
+            <li>whence - Список всех версий Python, содержащих данный исполняемый файл</li>
+        </ul>
+        <p>
+            Команда "<em>pyenv help</em>" выводит все доступные команды pyenv вместе с кратким
+            описанием того, что они делают.
+        </p>
+        <p>
+            Выполнив команду "<em>pyenv help &lt;command&gt;</em>" для получения информации о
+            конкретной команде.
+        </p>
+        <p>
+            Полную документацию по pyenv можно найти в файле
+            <a href="https://github.com/pyenv/pyenv/blob/master/README.md">README.md </a> в
+            GitHub-репозитории проекта.
+        </p>
+    </body>
+</html>
