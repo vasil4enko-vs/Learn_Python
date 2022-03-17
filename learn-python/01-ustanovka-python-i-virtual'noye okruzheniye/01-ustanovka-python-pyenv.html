@@ -13,7 +13,7 @@
             Если Вы используете macOS или Linux, то у Вас, скорее всего, в системе изначально будет
             установлен Python. Но скорее всего Вы столкнётесь с Python второй версии или даже
             третьей, но не самой актуальной. К тому же для работы в разных проектах Вам могут
-            понадобиться разные версии интерпретатора Python.
+            понадобиться различные версии интерпретатора Python.
         </p>
         <p>
             В ОС Windows Вы и вовсе столкнётесь с отсутствием Python, если Вы, конечно, не
@@ -26,26 +26,19 @@
             устроить.
         </p>
         <p>
-            И тут на помощь нам придёт простой менеджер версий
-            <a href="https://github.com/pyenv/pyenv"> pyenv</a>.
+            Эти проблемы решает простой менеджер версий
+            <a href="//github.com/pyenv/pyenv"> <strong>pyenv</strong></a
+            >.
         </p>
-        <p>pyenv - утилита, которая, по словам её автора, позволяет:</p>
+        <p><strong>pyenv</strong> - утилита, которая, по словам её автора, позволяет:</p>
         <ul>
+            <li><strong>изменить глобальную версию Python</strong> для каждого пользователя.</li>
+            <li><strong>установить определённую версию Python</strong> для каждого проекта.</li>
+            <li><strong>переопределить версию Python</strong> с помощью переменной среды.</li>
             <li>
-                Позволяет <strong>изменить глобальную версию Python</strong> для каждого
-                пользователя.
-            </li>
-            <li>
-                Позволяет установить
-                <strong> определённую версию Python для каждого проекта</strong>.
-            </li>
-            <li>
-                Позволяет <strong>переопределить версию Python</strong> с помощью переменной среды.
-            </li>
-            <li>
-                Ищет команды из <strong>нескольких версий Python одновременно</strong>. Это может
-                быть полезно для тестирования разных версий Python с помощью
-                <a href="https://pypi.python.org/pypi/tox">tox</a>.
+                <strong>использовать команды из нескольких версий Python</strong> одновременно. Это
+                может быть полезно для тестирования разных версий Python с помощью
+                <a href="//pypi.python.org/pypi/tox">tox</a>.
             </li>
         </ul>
         <p>
@@ -59,22 +52,22 @@
         <p>Нужно сразу заметить, что pyenv не будет работать в ОС Windows. Но и тут есть выход.</p>
         <p>
             Вы можете использовать порт pyenv для Windows -
-            <a href="https://github.com/pyenv-win/pyenv-win"> pyenv-win</a>.
+            <a href="//github.com/pyenv-win/pyenv-win"> pyenv-win</a>.
         </p>
         <p>
             Пользователи же macOS и Linux могут установить оригинальный pyenv по следующей
-            <a href="https://github.com/pyenv/pyenv/#installation"> инструкции</a>.
+            <a href="//github.com/pyenv/pyenv/#installation"> инструкции</a>.
         </p>
         <p>
             Ну, а мы рассмотрим пример установки pyenv для Linux-дистрибутива
-            <a href="https://www.opensuse.org/"> openSUSE</a>, которым я с удовольствием пользуюсь,
-            чего и Вам желаю.
+            <a href="//www.opensuse.org/"> openSUSE</a>, которым я с удовольствием пользуюсь, чего и
+            Вам желаю.
         </p>
         <h2>Установка pyenv в openSUSE</h2>
         <h3>Предварительные действия</h3>
         <p>
             Чтобы pyenv мог правильно установить Python, Вы должны
-            <a href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment">
+            <a href="//github.com/pyenv/pyenv/wiki#suggested-build-environment">
                 <strong> установить зависимости сборки Python</strong></a
             >:
         </p>
@@ -88,7 +81,7 @@ readline-devel zlib-devel tk-devel libffi-devel sqlite3-devel
         <p>
             Установить pyenv в openSUSE можно несколькими способами. Я же предлагаю Вам
             воспользоваться -
-            <a href="https://github.com/pyenv/pyenv-installer"> pyenv-installer</a>.
+            <a href="//github.com/pyenv/pyenv-installer"> pyenv-installer</a>.
         </p>
         <p>
             Первым делом необходимо знать, что
@@ -125,8 +118,8 @@ For more information go to https://github.com/pyenv/pyenv/#installation.
             </code>
         </pre>
         <p>
-            Перейдя по указанной
-            <a href="https://github.com/pyenv/pyenv/#installation"> ссылке</a> действительно можно
+            Перейдя по указанной в выводе
+            <a href="//github.com/pyenv/pyenv/#installation"> ссылке</a>, действительно можно
             обнаружить, что в "2. Configure your shell's environment for Pyenv - For Zsh: - Other
             OSes:" указано:
         </p>
@@ -146,8 +139,8 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
         <p>
             <strong>Примечание:</strong> Если у Вас другая ОС и (или) другая командная оболочка
             (shell), то выбирайте в
-            <a href="https://github.com/pyenv/pyenv/#installation"> инструкции</a> список команд,
-            который подходит в Вашем случае.
+            <a href="//github.com/pyenv/pyenv/#installation"> инструкции</a> список команд, который
+            подходит в Вашем случае.
         </p>
         <p><strong>Проверим установку pyenv</strong> командой:</p>
         <pre><code>$ pyenv --version</code></pre>
@@ -217,7 +210,7 @@ anaconda-1.5.0
         <pre><code>$ pyenv install 3.10.2</code></pre>
         <p>
             Придётся немного подождать... Ведь устанавливаемая версия Python будет скачана из
-            <a href="https://www.python.org/ftp/python/">https://www.python.org/ftp/python/</a> и
+            <a href="//www.python.org/ftp/python/">https://www.python.org/ftp/python/</a> и
             скомпилирована из исходного кода.
         </p>
         <p>
@@ -230,7 +223,7 @@ anaconda-1.5.0
         <pre>
             <code>
 * system (set by /home/user/.pyenv/version)
-  3.10.2
+3.10.2
             </code>
         </pre>
         <p>
@@ -368,17 +361,18 @@ Python 3.8.12
         </p>
         <p>Некоторые полезные команды pyenv:</p>
         <ul>
-            <li>commands - Список всех доступных команд pyenv</li>
-            <li>local - Установить или показать локальную версию Python</li>
-            <li>global - Установить или показать глобальную версию Python</li>
-            <li>shell - Установить или показать версию Python для оболочки</li>
-            <li>install - Установить версию Python с помощью python-build</li>
-            <li>uninstall - Удалить определенную версию Python</li>
-            <li>rehash - Rehash pyenv shims (запустите после установки исполняемых файлов)</li>
-            <li>version - Показать текущую версию Python и ее происхождение</li>
-            <li>versions - Список всех версий Python, доступных для pyenv</li>
-            <li>which - Отображает полный путь к исполняемому файлу</li>
-            <li>whence - Список всех версий Python, содержащих данный исполняемый файл</li>
+            <li>commands - Список всех доступных команд pyenv.</li>
+            <li>local - Установить или показать локальную версию Python.</li>
+            <li>global - Установить или показать глобальную версию Python.</li>
+            <li>shell - Установить или показать версию Python для оболочки.</li>
+            <li>install - Установить версию Python с помощью python-build.</li>
+            <li>uninstall - Удалить определенную версию Python.</li>
+            <li>rehash - Rehash pyenv shims (запустите после установки исполняемых файлов).</li>
+            <li>version - Показать текущую версию Python и ее происхождение.</li>
+            <li>versions - Список всех версий Python, доступных для pyenv.</li>
+            <li>which - Отображает полный путь к исполняемому файлу.</li>
+            <li>whence - Список всех версий Python, содержащих данный исполняемый файл.</li>
+            <li>update - Обновление pyenv.</li>
         </ul>
         <p>
             Команда "<em>pyenv help</em>" выводит все доступные команды pyenv вместе с кратким
@@ -390,7 +384,7 @@ Python 3.8.12
         </p>
         <p>
             Полную документацию по pyenv можно найти в файле
-            <a href="https://github.com/pyenv/pyenv/blob/master/README.md">README.md </a> в
+            <a href="//github.com/pyenv/pyenv/blob/master/README.md">README.md </a> в
             GitHub-репозитории проекта.
         </p>
     </body>
