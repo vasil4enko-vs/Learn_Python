@@ -94,10 +94,18 @@ readline-devel zlib-devel tk-devel libffi-devel sqlite3-devel
             После <strong>правильной установки необходимых зависимостей</strong> перейдём,
             непосредственно, к <strong>установке pyenv</strong>:
         </p>
-        <pre><code>$ curl https://pyenv.run | bash</code></pre>
+        <pre>
+            <code>
+$ curl https://pyenv.run | bash
+            </code>
+        </pre>
         <p>Эта команда установит pyenv в каталог ~/.pyenv.</p>
         <p>После установки перезапускаем оболочку, чтобы изменения PATH вступили в силу:</p>
-        <pre><code>$ exec $SHELL</code></pre>
+        <pre>
+            <code>
+$ exec $SHELL
+            </code>
+        </pre>
         <p>Теперь, Вы можете начать использовать pyenv...</p>
         <p>Ну, так написано в README.rst для pyenv-installer...</p>
         <p>
@@ -134,7 +142,7 @@ echo 'eval "$(pyenv init --path)"' >> ~/.profi
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
             </code>
         </pre>
-        <p>В принципе, тоже что и выдал нам шелл, но добавилась команда для файла ~/.zshrc.</p>
+        <p>В принципе, тоже что и выдал нам терминал, но добавилась команда для файла ~/.zshrc.</p>
         <p>Выполним в терминале эти последние семь команд и снова перелогинимся в системе.</p>
         <p>
             <strong>Примечание:</strong> Если у Вас другая ОС и (или) другая командная оболочка
@@ -143,19 +151,35 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
             подходит в Вашем случае.
         </p>
         <p><strong>Проверим установку pyenv</strong> командой:</p>
-        <pre><code>$ pyenv --version</code></pre>
+        <pre>
+            <code>
+$ pyenv --version
+            </code>
+        </pre>
         <p>Получим результат:</p>
-        <pre><code>$ pyenv 2.2.4-1</code></pre>
+        <pre>
+            <code>
+pyenv 2.3.0-6-g70b23638
+            </code>
+        </pre>
         <p>Теперь всё работает без лишних вопросов.</p>
         <h3>Обновление pyenv</h3>
         <p><strong>Для обновления pyenv</strong> необходимо выполнить команду:</p>
-        <pre><code>$ pyenv update</code></pre>
+        <pre>
+            <code>
+$ pyenv update
+            </code>
+        </pre>
         <h3>Удаление pyenv</h3>
         <p>
             Если окажется, что pyenv Вам больше не нужен, то <strong> удалить</strong> его можно
             командой:
         </p>
-        <pre><code>$ rm -fr ~/.pyenv</code></pre>
+        <pre>
+            <code>
+$ rm -fr ~/.pyenv
+            </code>
+        </pre>
         <p>Но мы этого пока делать не будем...</p>
         <h2>Основы работы с pyenv</h2>
         <h3>Установка нужных версий Python</h3>
@@ -163,15 +187,35 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
             Для начала посмотрим какие версии Python уже установленны в системе. Для этого выполним
             в терминале команду:
         </p>
-        <pre><code>$ python -V</code></pre>
+        <pre>
+            <code>
+$ python -V
+            </code>
+        </pre>
         <p>Я получил ответ:</p>
-        <pre><code>Python 2.7.18</code></pre>
+        <pre>
+            <code>
+Python 2.7.18
+            </code>
+        </pre>
         <p>Узнаем, что у нас с 3-ей версией Python:</p>
-        <pre><code>$ python3 -V</code></pre>
+        <pre>
+            <code>
+$ python3 -V
+            </code>
+        </pre>
         <p>Ответ:</p>
-        <pre><code>Python 3.8.12</code></pre>
+        <pre>
+            <code>
+Python 3.8.12
+            </code>
+        </pre>
         <p>Теперь посмотрим, какие версии Python pyenv может установить:</p>
-        <pre><code>$ pyenv install --list</code></pre>
+        <pre>
+            <code>
+$ pyenv install --list
+            </code>
+        </pre>
         <p>Получаем запрошенный список:</p>
         <pre>
             <code>
@@ -188,6 +232,8 @@ Available versions:
 3.10-dev
 3.10.1
 3.10.2
+3.10.3
+3.10.4
 3.11.0a4
 3.11-dev
 activepython-2.7.14
@@ -206,28 +252,36 @@ anaconda-1.5.0
             интерпретаторы языка Python. В таком случае перед номером версии будет указано название
             интерпретатора, например, stackless-3.7.5 или activepython-3.6.0.
         </p>
-        <p>Выберем для установки версию 3.10.2 и, соответственно, установим:</p>
-        <pre><code>$ pyenv install 3.10.2</code></pre>
+        <p>Выберем для установки версию 3.10.4 и, соответственно, установим:</p>
+        <pre>
+            <code>
+$ pyenv install 3.10.4
+            </code>
+        </pre>
         <p>
             Придётся немного подождать... Ведь устанавливаемая версия Python будет скачана из
             <a href="//www.python.org/ftp/python/">https://www.python.org/ftp/python/</a> и
             скомпилирована из исходного кода.
         </p>
         <p>
-            В результате выполнения последней команды нужная нам версия Python-3.10.2 установлена в
+            В результате выполнения последней команды нужная нам версия Python-3.10.4 установлена в
             директорию /home/user/.pyenv/versions/.
         </p>
         <p>Проверим, что это действительно так командой:</p>
-        <pre><code>$ pyenv versions</code></pre>
+        <pre>
+            <code>
+$ pyenv versions
+            </code>
+        </pre>
         <p>Мой вывод:</p>
         <pre>
             <code>
 * system (set by /home/user/.pyenv/version)
-3.10.2
+3.10.4
             </code>
         </pre>
         <p>
-            В этом выводе мы видим установленный нами Python 3.10.2. При необходимости можно
+            В этом выводе мы видим установленный нами Python 3.10.4. При необходимости можно
             установить и несколько других версий Python.
         </p>
         <p>
@@ -237,23 +291,31 @@ anaconda-1.5.0
             если нужно.
         </p>
         <h4>Изменение версии Python глобально</h4>
-        <p><strong>Изменить глобально версию Python</strong>, на версию 3.10.2 можно командой:</p>
-        <pre><code>$ pyenv global 3.10.2</code></pre>
+        <p><strong>Изменить глобально версию Python</strong>, на версию 3.10.4 можно командой:</p>
+        <pre>
+            <code>
+$ pyenv global 3.10.4
+            </code>
+        </pre>
         <p>При необходимости можно сделать активными сразу несколько версий одновременно:</p>
-        <pre><code>$ pyenv global 3.10.2 2.7.18</code></pre>
+        <pre>
+            <code>
+$ pyenv global 3.10.4 2.7.18
+            </code>
+        </pre>
         <p>После этой команды глобально версии Python по умолчанию будут выглядеть так:</p>
         <pre>
             <code>
 $ python -V
-Python 3.10.2
+Python 3.10.4
 $ python3 -V
-Python 3.10.2
+Python 3.10.4
 $ python2 -V
 Python 2.7.18
             </code>
         </pre>
         <p>
-            Коротко говоря, после выполнения команды "<em>pyenv global 3.10.2 2.7.18</em>", первая
+            Коротко говоря, после выполнения команды "<em>pyenv global 3.10.4 2.7.18</em>", первая
             указанная в команде версия Python займёт все подходящие ей имена, а вторая - подходящие
             ей из оставшихся имён.
         </p>
@@ -266,7 +328,11 @@ Python 2.7.18
         <details>
             <summary><strong>Ответ: ...</strong></summary>
             <p>В моём случае нужно выполнить команду:</p>
-            <pre>$ pyenv global 2.7.18 3.8.12</pre>
+            <pre>
+                <code>
+$ pyenv global 2.7.18 3.8.12
+                </code>
+            </pre>
             <p>Вы должны подставить свои изначальные версии Python.</p>
         </details>
         <p>
@@ -282,9 +348,17 @@ Python 2.7.18
         <p>Поэтому, в большинстве случаев, лучше изменять версию Python для конкретного проекта.</p>
         <h4>Изменение версии Python локально</h4>
         <p>Создадим директорию:</p>
-        <pre><code>mkdir my_project</code></pre>
+        <pre>
+            <code>
+mkdir my_project
+            </code>
+        </pre>
         <p>И перейдём в неё:</p>
-        <pre><code>cd my_project</code></pre>
+        <pre>
+            <code>
+cd my_project
+            </code>
+        </pre>
         <p>Проверим, для чистоты эксперимента версию Python:</p>
         <pre>
             <code>
@@ -298,21 +372,25 @@ Python 3.8.12
         </pre>
         <p>
             И изменим в этой директории для нашего будущего проекта версию интерпретатора Python
-            локально на 3.10.2:
+            локально на 3.10.4:
         </p>
-        <pre><code>pyenv local 3.10.2</code></pre>
+        <pre>
+            <code>
+pyenv local 3.10.4
+            </code>
+        </pre>
         <p>Теперь проверим, что у нас получилось:</p>
         <pre>
             <code>
 $ python -V
-Python 3.10.2
+Python 3.10.4
 $ python2 -V
 Python 2.7.18
 $ python3 -V
-Python 3.10.2
+Python 3.10.4
             </code>
         </pre>
-        <p>Как видите, версия по умолчанию у нас - 3.10.2.</p>
+        <p>Как видите, версия по умолчанию у нас - 3.10.4.</p>
         <p>Посмотрим, что изменилось в нашей директории:</p>
         <pre>
             <code>
@@ -325,7 +403,7 @@ $ ls -a
         <pre>
             <code>
 $ cat .python-version
-3.10.2
+3.10.4
             </code>
         </pre>
         <p>
@@ -335,7 +413,7 @@ $ cat .python-version
         <pre>
             <code>
 $ pyenv version
-3.10.2 (set by /home/user/projects/GitHub-Python/Learn_Python/my_project/.python-version)
+3.10.4 (set by /home/user/my_project/.python-version)
             </code>
         </pre>
         <p>
@@ -359,7 +437,17 @@ Python 3.8.12
             И конечно же, как и случае с глобальной конфигурацией, локально можно назначать
             несколько версий Python.
         </p>
-        <p>Некоторые полезные команды pyenv:</p>
+        <p>
+            При использовании <em>pyenv</em> у Вас со временем могут накопиться старые версии
+            Python, которые Вам уже не нужны
+        </p>
+        <p>Удалить их можно, на примере версии 3.10.3, командой:</p>
+        <pre>
+            <code>
+$ pyenv uninstall 3.10.3
+            </code>
+        </pre>
+        <p>Ещё некоторые полезные команды <em>pyenv</em>:</p>
         <ul>
             <li>commands - Список всех доступных команд pyenv.</li>
             <li>local - Установить или показать локальную версию Python.</li>

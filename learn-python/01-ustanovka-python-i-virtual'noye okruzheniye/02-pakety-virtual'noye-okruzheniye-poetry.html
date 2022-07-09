@@ -59,7 +59,7 @@
             Для создания и использования виртуального окружения в Python есть несколько различных
             инструментов, которые мы и рассмотрим далее.
         </p>
-        <h2>Инструменты для создания виртуального окружения в Python</h2>
+        <h3>Инструменты для создания виртуального окружения в Python</h3>
         <p>
             Установив Python Вы сразу получаете и распространяемую с ним Стандартную библиотеку
             Python. А с ней, средство для создания виртуальных сред и работы с ними -
@@ -147,11 +147,11 @@
             </ul>
         </ul>
         <p>
-            Как видите, выбирать есть из чего. И что же выбрать? И тут начинается самое
+            Как видите, выбирать есть из чего. Так что же выбрать? И тут начинается самое
             интересное...
         </p>
         <p>
-            Наверное, лучше всего использовать инструмент из стандартной библиотеки -
+            Казалочь бы, лучше всего использовать инструмент из стандартной библиотеки -
             <strong>venv</strong>, но в
             <a
                 href="//packaging.python.org/en/latest/tutorials/managing-dependencies/#managing-dependencies"
@@ -172,17 +172,17 @@
             >.
         </p>
         <p>
-            Лично мне, приглянулся <strong>poetry</strong>. Этот инструмент покрывает, практически,
-            все запросы по управлению пакетами, позволяет создавать виртуальные окружения и
-            управлять ими.
+            Лично мне, приглянулся <a href="https://python-poetry.org/"><strong>poetry</strong></a
+            >. Этот инструмент покрывает, практически, все запросы по управлению пакетами, позволяет
+            создавать виртуальные окружения и управлять ими.
         </p>
         <p>
             Единственно, что он не может, устанавливать нужные версии самого Python, но как Вы уже
             знаете, тут нам поможет <strong>pyenv</strong>.
         </p>
         <p>Если же Вам больше по душе другие инструменты, используйте их. Благо, выбор есть.</p>
-        <h2>Poetry</h2>
-        <h3>Установка Poetry</h3>
+        <h3>Poetry</h3>
+        <h4>Установка Poetry</h4>
         <p>
             poetry является кросс-платформенным инструментом, его можно использовать в Linux, macOS
             и Windows.
@@ -240,11 +240,19 @@ $ (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Co
         <ul>
             <li>
                 Для Linux и macOS:
-                <pre><code>$HOME/.local/bin</code></pre>
+                <pre>
+                    <code>
+$HOME/.local/bin
+                    </code>
+                </pre>
             </li>
             <li>
                 Для Windows:
-                <pre><code>%APPDATA%\Python\Scripts</code></pre>
+                <pre>
+                    <code>
+%APPDATA%\Python\Scripts
+                    </code>
+                </pre>
             </li>
         </ul>
         <p>
@@ -299,7 +307,9 @@ $ poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
             </code>
         </pre>
         <p>Возможно, вам придется перезапустить оболочку, чтобы изменения вступили в силу.</p>
-        <p>Для oh-my-zsh Вы также должны включить poetry в свои плагинах в файле ~/.zshrc:</p>
+        <p>
+            Для oh-my-zsh Вы также должны включить плагин poetry в свои плагинах в файле ~/.zshrc:
+        </p>
         <pre>
             <code>
 plugins(
@@ -317,6 +327,412 @@ plugins(
                 >документации poetry</a
             >.
         </p>
-        <h3>Работа с Poetry</h3>
+        <h4>Использование рoetry</h4>
+        <h5>Создание проекта poetry</h5>
+        <p>
+            В начале необходимо создать новый проект. Причём, создание проекта с нуля в пустой
+            директории и в каталоге с файлами осуществляется разными командами.
+        </p>
+        <p>Для <strong>создания нового проекта</strong> в консоли требуется выполнить:</p>
+        <pre>
+            <code>
+$ poetry new learn-python
+            </code>
+        </pre>
+        <p>
+            В результате будет создана директория <strong>learn-python</strong> со следующим
+            содержимым:
+        </p>
+        <pre>
+            <code>
+learn-python
+├── pyproject.toml
+├── README.md
+├── learn_python
+│   └── __init__.py
+└── tests
+    └── __init__.py
+            </code>
+        </pre>
+        <p>
+            Наибольший интерес для нас представляет файл <strong>pyproject.toml</strong>. Он
+            позволяет организовать Ваш проект и его зависимости.
+        </p>
+        <p>
+            В
+            <a href="https://python-poetry.org/docs/master/basic-usage/#project-setup"
+                >документации poetry</a
+            >
+            приводится такой вариант файла <strong>pyproject.toml</strong>, созданного после
+            выполнения команды <em>poetry new learn-python</em>:
+        </p>
+        <pre>
+            <code>
+[tool.poetry]
+name = "poetry-demo"
+version = "0.1.0"
+description = ""
+authors = ["Sébastien Eustace &#060;sebastien@eustace.io&#062;"]
+readme = "README.md"
+packages = [{include = "poetry_demo"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+            </code>
+        </pre>
+        <p>
+            У меня же в каталоге проекта уже есть файлы, поэтому я использую второй вариант -
+            <strong>инициализация уже существующего проекта</strong>.
+        </p>
+        <p>Для этого необходимо перейти в директорию проекта и выполнить команду:</p>
+        <pre>
+            <code>
+$ poetry init
+            </code>
+        </pre>
+        <p>
+            Далее в интерактивном режиме нужно ответить на задаваемые вопросы или просто нажать
+            клавишу "Enter" для выбора значения по умолчанию.
+        </p>
+        <p>В результате также создастся файл <strong>pyproject.toml</strong>.</p>
+        <p>Мой файл имеет следующее содержание:</p>
+        <pre>
+            <code>
+[tool.poetry]
+name = "learn-python"
+version = "0.1.0"
+description = "Изучение Python."
+authors = ["vasil4enko-vs &#060;vvs170@gmail.com&#062;"]
+license = "CC BY-SA 4.0"
+
+[tool.poetry.dependencies]
+python = "^3.10.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+            </code>
+        </pre>
+        <p>
+            Нужно добавить, что при интерактивном создании файла <em>pyproject.toml</em> можно
+            указать пакеты необходимые для проекта и для его разработки. Но я этого не делал, чтобы
+            впоследствии показать как добавляются пакеты в проект и пояснить назначение этих
+            пакетов.
+        </p>
+        <p>
+            Подробнее о файле <strong>pyproject.toml</strong> можно узнать в
+            <a href="https://python-poetry.org/docs/master/pyproject">документации poetry</a>.
+        </p>
+        <p>
+            Если же poetry, по каким либо причинам, не удалось найти нужную Вам версию Python это
+            легко исправить. Вы можете явно указать полный путь к исполняемому файлу нужной Вам
+            версии Python, выполнив команду:
+        </p>
+        <pre>
+            <code>
+$ poetry env use /full/path/to/python
+            </code>
+        </pre>
+        <p>
+            Если местоположение Вашего исполняемого файла Python находится в вашем PATH, вы можете
+            использовать команду:
+        </p>
+        <pre>
+            <code>
+$ poetry env use python3.10.4
+            </code>
+        </pre>
+        <p>Или даже ещё проще:</p>
+        <pre>
+            <code>
+$ poetry env use 3.10.4
+            </code>
+        </pre>
+        <p>
+            При необходимости откатиться к системным настройкам версий Python Вы можете выполнить:
+        </p>
+        <pre>
+            <code>
+$ poetry env use system
+            </code>
+        </pre>
+        <p>
+            Более подробная информация, как всегда, в
+            <a href="https://python-poetry.org/docs/master/managing-environments/">документации</a>.
+        </p>
+        <h5>Добавление зависимостей</h5>
+        <p>
+            Рассмотрим добавление зависимостей в проект на примере пакета
+            <a href="https://pendulum.eustace.io/">pendulum</a>
+        </p>
+        <p>
+            Для добавления пакета pendulum в проект необходимо перейти в директорию проекта и
+            выполнить команду:
+        </p>
+        <pre>
+            <code>
+$ poetry add pendulum
+            </code>
+        </pre>
+        <p>
+            В результате выполнения этой команды в файле <em>pyproject.toml</em> в секции
+            <em>[tool.poetry.dependencies]</em> добавится зависимость на пакет <em>pendulum</em>:
+        </p>
+        <pre>
+            <code>
+[tool.poetry.dependencies]
+python = "^3.10.4"
+pendulum = "^2.1.2"
+            </code>
+        </pre>
+        <p>
+            Также poetry автоматически найдет подходящее ограничение версии и установит пакет и его
+            зависимости.
+        </p>
+        <p>
+            Ну, а что означает загадочное обозначение ограничения версии в секции
+            <em>[tool.poetry.dependencies]</em> для пакета <em>pendulum</em>, как впрочем и для
+            других пакетов, и не только в <em>pyproject.toml</em>:
+        </p>
+        <pre>
+            <code>
+[tool.poetry.dependencies]
+...
+pendulum = "^2.1.2"
+            </code>
+        </pre>
+        <p>
+            можно узнать на
+            <a href="https://python-poetry.org/docs/master/dependency-specification/"
+                >следующей странице документации</a
+            >.
+        </p>
+        <p>
+            Проверим установку нашего пакета <em>pendulum</em> со всеми зависимостями в виде дерева:
+        </p>
+        <pre>
+            <code>
+$ poetry show --tree
+            </code>
+        </pre>
+        <p>Полученный результата у меня выглядит так:</p>
+        <pre>
+            <code>
+pendulum 2.1.2 Python datetimes made easy
+├── python-dateutil >=2.6,<3.0
+│   └── six >=1.5
+└── pytzdata >=2020.1
+            </code>
+        </pre>
+        <p>
+            Если же Вам необходимо добавить зависимости на пакеты которые не нужны для работы
+            проекта, но нужны для разработки, выполните, например, такую команду:
+        </p>
+        <pre>
+            <code>
+$ poetry add black bandit flake8 mypy pytest --dev
+            </code>
+        </pre>
+        <p>
+            Посмотрим наш файл <em>pyproject.toml</em>, в секции
+            <em>[tool.poetry.dev-dependencies]</em> у меня появились следующие строки:
+        </p>
+        <pre>
+            <code>
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+flake8 = "^4.0.1"
+black = "^22.3.0"
+mypy = "^0.950"
+bandit = "^1.7.4"
+            </code>
+        </pre>
+        <p>Проверим, что мы ещё такого установили:</p>
+        <pre>
+            <code>
+$ poetry show --tree
+            </code>
+        </pre>
+        <p>Результат:</p>
+        <pre>
+            <code>
+bandit 1.7.4 Security oriented static analyser for python code.
+├── colorama >=0.3.9
+├── gitpython >=1.0.1
+│   └── gitdb >=4.0.1,<5
+│       └── smmap >=3.0.1,<6
+├── pyyaml >=5.3.1
+└── stevedore >=1.20.0
+    └── pbr >=2.0.0,<2.1.0 || >2.1.0
+black 22.3.0 The uncompromising code formatter.
+├── click >=8.0.0
+│   └── colorama *
+├── mypy-extensions >=0.4.3
+├── pathspec >=0.9.0
+├── platformdirs >=2
+└── tomli >=1.1.0
+flake8 4.0.1 the modular source code checker: pep8 pyflakes and co
+├── mccabe >=0.6.0,<0.7.0
+├── pycodestyle >=2.8.0,<2.9.0
+└── pyflakes >=2.4.0,<2.5.0
+mypy 0.950 Optional static typing for Python
+├── mypy-extensions >=0.4.3
+├── tomli >=1.1.0
+└── typing-extensions >=3.10
+pendulum 2.1.2 Python datetimes made easy
+├── python-dateutil >=2.6,<3.0
+│   └── six >=1.5
+└── pytzdata >=2020.1
+pytest 7.1.2 pytest: simple powerful testing with Python
+├── atomicwrites >=1.0
+├── attrs >=19.2.0
+├── colorama *
+├── iniconfig *
+├── packaging *
+│   └── pyparsing >=2.0.2,<3.0.5 || >3.0.5
+├── pluggy >=0.12,<2.0
+├── py >=1.8.2
+└── tomli >=1.0.0
+            </code>
+        </pre>
+        <h5>Удаление зависимостей</h5>
+        <p>
+            Если же Вы решили, что некий пакет Вам не нужен, то его просто удалить. Что мы и сделаем
+            на примере пакета <em>pendulum</em> с помощью команды:
+        </p>
+        <pre>
+            <code>
+$ poetry remove pendulum
+            </code>
+        </pre>
+        <p>Мой вывод результата выполнения команды:</p>
+        <pre>
+            <code>
+Updating dependencies
+Resolving dependencies... (0.3s)
+Writing lock file
+Package operations: 0 installs, 0 updates, 4 removals
+    • Removing pendulum (2.1.2)
+    • Removing python-dateutil (2.8.2)
+    • Removing pytzdata (2020.1)
+    • Removing six (1.16.0)
+            </code>
+        </pre>
+        <p>
+            Как видим удаляется не только указанный в команде пакет <em>pendulum</em>, но и его
+            зависимости: <em>python-dateutil</em>, <em>pytzdata</em> и <em>six</em>
+        </p>
+        <p>
+            Заглянем в в файл <em>pyproject.toml</em>. В секции
+            <em>[tool.poetry.dependencies]</em> теперь нет зависимости на пакет <em>pendulum</em>,
+            осталась только запись о версии Python:
+        </p>
+        <pre>
+            <code>
+[tool.poetry.dependencies]
+python = "^3.10.4"
+            </code>
+        </pre>
+        <p>А теперь посмотрим установленные пакеты при помощи команды:</p>
+        <pre>
+            <code>
+$ poetry show --tree
+            </code>
+        </pre>
+        <p>Смотрим:</p>
+        <pre>
+            <code>
+bandit 1.7.4 Security oriented static analyser for python code.
+├── colorama >=0.3.9
+├── gitpython >=1.0.1
+│   └── gitdb >=4.0.1,<5
+│       └── smmap >=3.0.1,<6
+├── pyyaml >=5.3.1
+└── stevedore >=1.20.0
+    └── pbr >=2.0.0,<2.1.0 || >2.1.0
+black 22.3.0 The uncompromising code formatter.
+├── click >=8.0.0
+│   └── colorama *
+├── mypy-extensions >=0.4.3
+├── pathspec >=0.9.0
+├── platformdirs >=2
+└── tomli >=1.1.0
+flake8 4.0.1 the modular source code checker: pep8 pyflakes and co
+├── mccabe >=0.6.0,<0.7.0
+├── pycodestyle >=2.8.0,<2.9.0
+└── pyflakes >=2.4.0,<2.5.0
+mypy 0.950 Optional static typing for Python
+├── mypy-extensions >=0.4.3
+├── tomli >=1.1.0
+└── typing-extensions >=3.10
+pytest 7.1.2 pytest: simple powerful testing with Python
+├── atomicwrites >=1.0
+├── attrs >=19.2.0
+├── colorama *
+├── iniconfig *
+├── packaging *
+│   └── pyparsing >=2.0.2,<3.0.5 || >3.0.5
+├── pluggy >=0.12,<2.0
+├── py >=1.8.2
+└── tomli >=1.0.0
+            </code>
+        </pre>
+        <p>
+            И убеждаемся, что в дереве установленных пакетов отсутствует как удалённый нами
+            <em>pendulum</em>, так и его зависимости.
+        </p>
+        <h2>Виртуальное окружение. Завершение</h2>
+        <p>
+            В процессе рассмотрения <em>pyenv</em> и <em>poetry</em> мы, практически создали
+            виртуальное окружение с нужной версией Python и другими плюшками. Осталось лишь
+            выполнить некоторые настройки.
+        </p>
+        <p>Для начала рассмотрим пакеты, которые мы добавили в проект как dev-зависимости:</p>
+        <ul>
+            <li>
+                <a href="https://github.com/psf/black"><strong>black</strong></a> - Бескомпромиссный
+                форматировщик кода Python. Этот инструмент для форматирования кода, который почти не
+                имеет настроек, что позволяет избежать затяжных споров при работе в команде.
+            </li>
+            <li>
+                <a href="https://bandit.readthedocs.io/en/latest/"><strong>bandit</strong></a> -
+                Линтер безопасности. Это инструмент, предназначенный для поиска распространенных
+                проблем безопасности в коде Python.
+            </li>
+            <li>
+                <a href="https://flake8.pycqa.org/en/latest/"><strong>flake8</strong></a> - Ваш
+                инструмент для обеспечения соблюдения руководства по стилю. Этот инструмент Python,
+                который объединяет pycodestyle, pyflakes, mccabe и сторонние плагины для проверки
+                стиля и качества кода Python.
+            </li>
+            <li>
+                <a href=""><strong>mypy</strong></a> - Необязательная статическая типизация для
+                Python. Дополнительная статическая проверка типов для Python, цель которой —
+                объединить преимущества динамической (или «утиной») типизации и статической
+                типизации.
+            </li>
+            <li>
+                <a href="https://docs.pytest.org/en/latest/"><strong>pytest</strong></a> - Фреймворк
+                pytest позволяет легко писать небольшие тесты, и может масштабироваться для
+                поддержки сложного функционального тестирования приложений и библиотек.
+            </li>
+        </ul>
+        <p>
+            Все эти пакеты не только помогут Вам научиться писать код правильно, но и в дальнейшем
+            будут Вашими незаменимыми помощниками.
+        </p>
+        <p>
+            А, именно, на данном этапе нас больше всего интересует настройка
+            <a href="https://ru.wikipedia.org/wiki/Lint">линтера</a> <em>flake8</em>, чем мы и
+            займёмся.
+        </p>
+        <p></p>
     </body>
 </html>
