@@ -149,6 +149,7 @@ cython_debug/
 
 # KDevelop
 .kdev4/
+Learn_Python.kdev4
 
 # Spyder project settings
 .spyderproject
