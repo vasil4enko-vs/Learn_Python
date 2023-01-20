@@ -113,24 +113,6 @@ ENV/
 env.bak/
 venv.bak/
 
-# VS Code
-.vscode/
-.VSCodeCounter/
-.tours/
-
-
-###
-
-# PyCharm
-.idea/
-
-# KDevelop
-.kdev4/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
 # Rope project settings
 .ropeproject
 
@@ -150,3 +132,28 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+
+###
+
+# jedi
+.jedi/
+
+# VS Code
+.vscode/
+.VSCodeCounter/
+.tours/
+
+# PyCharm
+.idea/
+
+# KDevelop
+.kdev4/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# eric7
+.eric7project/
+Lern_Python.epj
