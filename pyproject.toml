@@ -2,15 +2,18 @@
 name = "learn-python"
 version = "0.1.0"
 description = "Изучение Python."
-authors = ["vasil4enko-vs <vvs170@gmail.com>"]
-license = "CC BY-SA 4.0"
-packages = [{include = "learn-python"}]
+authors = ["Your Name <you@example.com>"]
+license = "CC BY 4.0"
+readme = "README.md"
+packages = [{include = "learn_python"}]
 
 [tool.poetry.dependencies]
-python = "^3.10.6"
+python = "^3.11"
+black = "^22.10.0"
+flake8 = "^6.0.0"
+bandit = "^1.7.4"
 
-[tool.poetry.dev-dependencies]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
