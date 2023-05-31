@@ -1,9 +1,8 @@
 [tool.poetry]
 name = "learn-python"
 version = "0.1.0"
-description = "Изучение Python."
+description = "Изучение Python"
 authors = ["vasil4enko-vs <vvs170@gmail.com>"]
-license = "CC BY 4.0"
 readme = "README.md"
 packages = [{include = "learn_python"}]
 
