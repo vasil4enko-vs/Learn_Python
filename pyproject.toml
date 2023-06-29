@@ -53,7 +53,7 @@ select = [
     "FA",
     "ISC",
     "ICN",
-    "INP",
+    #"INP",
     "T20",
     "Q",
     "RSE",
