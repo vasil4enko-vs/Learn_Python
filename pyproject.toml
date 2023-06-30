@@ -14,6 +14,8 @@ python = "^3.11"
 bandit = "^1.7.5"
 black = "^23.3.0"
 ruff = "^0.0.275"
+usort = "^1.0.7"
+ufmt = "^2.1.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -73,7 +75,7 @@ select = [
 ignore = ["T201"]
 
 [tool.ruff.pycodestyle]
-max-doc-length = 88
+# max-doc-length = 88
 
 [tool.ruff.pydocstyle]
 # Use Google-style docstrings.
