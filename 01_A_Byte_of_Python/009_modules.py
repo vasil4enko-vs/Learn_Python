@@ -24,11 +24,11 @@ Python. Сперва посмотрим, как использовать мод�
 
 import sys
 
-print('Аргументы командной строки:')
+print("Аргументы командной строки:")
 for i in sys.argv:
     print(i)
 
-print('\n\nПеременная PYTHONPATH содержит', sys.path, '\n')
+print("\n\nПеременная PYTHONPATH содержит", sys.path, "\n")
 
 """$ python3 using_sys.py we are arguments
     Аргументы командной строки:
@@ -36,13 +36,12 @@ print('\n\nПеременная PYTHONPATH содержит', sys.path, '\n')
     we
     are
     arguments
-    Переменная PYTHONPATH содержит ['/home/scyth1an/projects/GitHub -
-    Python/Learn_Python/01-A_Byte_of_Python/009-modules/01-modules',
-    '/home/scyth1an/anaconda3/lib/python38.zip',
-    '/home/scyth1an/anaconda3/lib/python3.8',
-    '/home/scyth1an/anaconda3/lib/python3.8/lib-dynload',
-    '/home/scyth1an/.local/lib/python3.8/site-packages',
-    '/home/scyth1an/anaconda3/lib/python3.8/site-packages']
+    Переменная PYTHONPATH содержит ['/home/path/to/009-modules/01-modules',
+    '/home/user/anaconda3/lib/python38.zip',
+    '/home/user/anaconda3/lib/python3.8',
+    '/home/user/anaconda3/lib/python3.8/lib-dynload',
+    '/home/user/.local/lib/python3.8/site-packages',
+    '/home/user/anaconda3/lib/python3.8/site-packages']
 """
 
 """Как это работает:"""
@@ -139,22 +138,23 @@ Python переводит программу (помните раздел "Вв�
 """Пример:"""
 
 from math import *
+
 n = int(input("Введите диапазон:-  "))
 p = [2, 3]
 count = 2
 a = 5
-while (count < n):
+while count < n:
     b = 0
     for i in range(2, a):
-        if (i <= sqrt(a)):
-            if (a % i == 0):
+        if i <= sqrt(a):
+            if a % i == 0:
                 print(a, "непростое")
                 b = 1
             else:
                 pass
 
-    if (b != 1):
-        print(a, 'простое')
+    if b != 1:
+        print(a, "простое")
         p = p + [a]
     count = count + 1
     a = a + 2
@@ -174,10 +174,10 @@ print(p)
 
 """Пример: (сохраните как using_name.py)"""
 
-if __name__ == '__main__':
-    print('Эта программа запущена сама по себе.')
+if __name__ == "__main__":
+    print("Эта программа запущена сама по себе.")
 else:
-    print('Меня импортировали в другой модуль.')
+    print("Меня импортировали в другой модуль.")
 
 """Вывод: """
 
@@ -210,10 +210,10 @@ else:
 
 def sayhi():
     """Пример собственного модуля."""
-    print('Привет! Это говорит мой модуль.')
+    print("Привет! Это говорит мой модуль.")
 
 
-__version__ = '0.1'
+__version__ = "0.1"
 
 # Конец модуля mymodule.py
 
@@ -231,7 +231,7 @@ __version__ = '0.1'
 import mymodule
 
 mymodule.sayhi()
-print('Версия:', mymodule.__version__)
+print("Версия:", mymodule.__version__)
 
 """Вывод: """
 
