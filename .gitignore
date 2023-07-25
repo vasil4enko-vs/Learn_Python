@@ -161,3 +161,6 @@ Lern_Python.epj
 
 # Sourcery
 .sourcery.yaml
+
+# Файл для тестов.
+test.py
