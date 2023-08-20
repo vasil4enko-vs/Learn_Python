@@ -11,11 +11,8 @@ packages = [{ include = "learn_python" }]
 python = "^3.11"
 
 [tool.poetry.group.dev.dependencies]
-bandit = "^1.7.5"
 black = "^23.3.0"
 ruff = "^0.0.275"
-usort = "^1.0.7"
-ufmt = "^2.1.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -24,52 +21,62 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 # Enable pycodestyle (E) and Pyflakes (F) codes by default.
-# Enable pycodestyle (W), mccabe (C90), isort (I), pep8-naming (N), pydocstyle (D),
-# pyupgrade (UP), flake8-2020 (YTT), flake8-annotations (ANN),flake8-async (ASYNC),
-# flake8-bandit (S), flake8-boolean-trap (FBT), flake8-bugbear (B), flake8-builtins (A),
-# flake8-comprehensions (C4), flake8-datetimez (DTZ), flake8-future-annotations (FA),
-# flake8-implicit-str-concat (ISC), flake8-import-conventions (ICN),
-# flake8-no-pep420 (INP), flake8-print (T20), flake8-quotes (Q), flake8-raise (RSE),
-# flake8-return (RET), flake8-slots (SLOT), flake8-simplify (SIM),
-# flake8-tidy-imports (TID), flake8-type-checking (TCH), flake8-unused-arguments (ARG),
-# flake8-use-pathlib (PTH), eradicate (ERA), Pylint (PL), tryceratops (TRY), flynt (FLY),
-# Ruff-specific rules (RUF) rules.
 select = [
-    "E",
-    "F",
-    "W",
-    "C90",
-    "I",
-    "N",
-    "D",
-    "UP",
-    "YTT",
-    "ANN",
-    "ASYNC",
-    "S",
-    "FBT",
-    "B",
-    "A",
-    "C4",
-    "DTZ",
-    "FA",
-    "ISC",
-    "ICN",
-    #"INP",
-    "T20",
-    "Q",
-    "RSE",
-    "RET",
-    "SLOT",
-    "TID",
-    "TCH",
-    "ARG",
-    "PTH",
-    "ERA",
-    "PL",
-    "TRY",
-    "FLY",
-    "RUF",
+    "E",        # pycodestyle
+    "F",        # Pyflakes
+    "W",        # pycodestyle
+    "C90",      # mccabe
+    "I",        # isort
+    "N",        # pep8-naming
+    "D",        # pydocstyle
+    "UP",       # pyupgrade
+    "YTT",      # flake8-2020
+    "ANN",      # flake8-annotations
+    "ASYNC",    # flake8-async
+    "S",        # flake8-bandit
+    "BLE",      # flake8-blind-except
+    "FBT",      # flake8-boolean-trap
+    "B",        # flake8-bugbear
+    "A",        # flake8-builtins
+    "COM",      # flake8-commas
+    #"CPY",      # flake8-copyright
+    "C4",       # flake8-comprehensions
+    "DTZ",      # flake8-datetimez
+    #"T10",      # flake8-debugger
+    #"DJ",       # flake8-django
+    "EM",       # flake8-errmsg
+    "EXE",      # flake8-executable
+    "FA",       # flake8-future-annotations
+    "ISC",      # flake8-implicit-str-concat
+    "ICN",      # flake8-import-conventions
+    #"INP",      # flake8-no-pep420
+    "PIE",      # flake8-pie
+    "T20",      # flake8-print
+    #"PYI",      # flake8-pyi
+    "PT",       # flake8-pytest-style
+    "Q",        # flake8-quotes
+    "RSE",      # flake8-raise
+    "RET",      # flake8-return
+    #"SLF",      # flake8-self
+    "SLOT",     # flake8-slots
+    "SIM",      # flake8-simplify
+    "TID",      # flake8-tidy-imports
+    "TCH",      # flake8-type-checking
+    "INT",      # flake8-gettext
+    "ARG",      # flake8-unused-arguments
+    "PTH",      # flake8-use-pathlib
+    "TD",       # flake8-todos
+    #"FIX"       # flake8-fixme
+    "ERA",      # eradicate
+    #"PD",       # pandas-vet
+    "PGH",      #pygrep-hooks
+    "PL",       # Pylint
+    "TRY",      # tryceratops
+    "FLY",      # flynt
+    #"NPY",      # NumPy-specific rules
+    #"AIR",      # Airflow
+    "PERF",     # Perflint
+    "RUF",      # Ruff-specific rules
 ]
 # ignore Checks for print statements ["T201"].
 ignore = ["T201"]
@@ -80,3 +87,5 @@ ignore = ["T201"]
 [tool.ruff.pydocstyle]
 # Use Google-style docstrings.
 convention = "google"
+# A list of task tags
+task-tags = ["TODO", "FIXME", "XXX"]
