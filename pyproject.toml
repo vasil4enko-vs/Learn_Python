@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{ include = "learn_python" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
@@ -45,7 +45,7 @@ select = [
     #"CPY",      # flake8-copyright
     "C4",  # flake8-comprehensions
     "DTZ", # flake8-datetimez
-    #"T10",      # flake8-debugger
+    "T10", # flake8-debugger
     #"DJ",       # flake8-django
     "EM",  # flake8-errmsg
     "EXE", # flake8-executable
