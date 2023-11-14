@@ -159,6 +159,9 @@ Learn_Python.kdev4
 Lern_Python.epj
 /nbproject/
 
+# Lapce
+.lapce/
+
 # Sourcery
 .sourcery.yaml
 
