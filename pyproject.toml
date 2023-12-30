@@ -41,25 +41,25 @@ select = [
     "B",     # flake8-bugbear
     "A",     # flake8-builtins
     "COM",   # flake8-commas
-    #"CPY",      # flake8-copyright
+    #"CPY", # flake8-copyright
     "C4",  # flake8-comprehensions
     "DTZ", # flake8-datetimez
     "T10", # flake8-debugger
-    #"DJ",       # flake8-django
+    #"DJ", # flake8-django
     "EM",  # flake8-errmsg
     "EXE", # flake8-executable
     "FA",  # flake8-future-annotations
     "ISC", # flake8-implicit-str-concat
     "ICN", # flake8-import-conventions
-    #"INP",      # flake8-no-pep420
+    #"INP", # flake8-no-pep420
     "PIE", # flake8-pie
-    "T20", # flake8-print
-    #"PYI",      # flake8-pyi
+    #"T20", # flake8-print
+    #"PYI", # flake8-pyi
     "PT",  # flake8-pytest-style
     "Q",   # flake8-quotes
     "RSE", # flake8-raise
     "RET", # flake8-return
-    #"SLF",      # flake8-self
+    #"SLF", # flake8-self
     "SLOT", # flake8-slots
     "SIM",  # flake8-simplify
     "TID",  # flake8-tidy-imports
@@ -68,20 +68,22 @@ select = [
     "ARG",  # flake8-unused-arguments
     "PTH",  # flake8-use-pathlib
     "TD",   # flake8-todos
-    #"FIX"       # flake8-fixme
+    #"FIX" # flake8-fixme
     "ERA", # eradicate
-    #"PD",       # pandas-vet
-    "PGH", #pygrep-hooks
+    #"PD", # pandas-vet
+    "PGH", # pygrep-hooks
     "PL",  # Pylint
     "TRY", # tryceratops
     "FLY", # flynt
-    #"NPY",      # NumPy-specific rules
-    #"AIR",      # Airflow
+    #"NPY", # NumPy-specific rules
+    #"AIR", # Airflow
     "PERF", # Perflint
     "RUF",  # Ruff-specific rules
 ]
-# ignore Checks for print statements ["T201"].
-ignore = ["T201"]
+# ignore Checks for print statements ["T201"]
+ignore = [
+    "RUF002", # Checks for ambiguous Unicode characters in docstrings
+]
 
 [tool.ruff.pycodestyle]
 # max-doc-length = 88
