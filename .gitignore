@@ -143,8 +143,11 @@ cython_debug/
 .VSCodeCounter/
 .tours/
 
-# PyCharm
+# JetBrains PyCharm
 .idea/
+
+# JetBrains Fleet
+.fleet/
 
 # KDevelop
 .kdev4/
