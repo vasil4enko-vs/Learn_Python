@@ -1,5 +1,8 @@
-"""Скрипт показывает полный путь к исполняемому файлу Python."""
+"""Скрипт показывает версию Python и полный путь к исполняемому файлу."""
 
 import sys
 
-print(sys.executable)
+py_path = sys.executable
+py_version = sys.version
+
+print(f"{py_version}\n{py_path}")
