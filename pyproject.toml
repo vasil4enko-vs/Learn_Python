@@ -1,93 +1,14 @@
-[tool.poetry]
+[project]
 name = "learn-python"
 version = "0.1.0"
 description = "Изучение Python."
-authors = ["vasil4enko-vs <vvs170@gmail.com>"]
+authors = [{ name = "vasil4enko-vs", email = "vvs170@gmail.com" }]
 license = "CC BY 4.0"
+dependencies = []
 readme = "README.md"
-packages = [{ include = "learn_python" }]
+requires-python = ">= 3.12"
 
-[tool.poetry.dependencies]
-python = "^3.12"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.1.3"
-pyrefact = "^95"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-
-[tool.ruff]
-# A list of task tags
-task-tags = ["TODO", "FIXME", "XXX"]
-# Enable pycodestyle (E) and Pyflakes (F) codes by default.
-select = [
-    "E",     # pycodestyle
-    "F",     # Pyflakes
-    "W",     # pycodestyle
-    "C90",   # mccabe
-    "I",     # isort
-    "N",     # pep8-naming
-    "D",     # pydocstyle
-    "UP",    # pyupgrade
-    "YTT",   # flake8-2020
-    "ANN",   # flake8-annotations
-    "ASYNC", # flake8-async
-    "S",     # flake8-bandit
-    "BLE",   # flake8-blind-except
-    "FBT",   # flake8-boolean-trap
-    "B",     # flake8-bugbear
-    "A",     # flake8-builtins
-    "COM",   # flake8-commas
-    #"CPY", # flake8-copyright
-    "C4",  # flake8-comprehensions
-    "DTZ", # flake8-datetimez
-    "T10", # flake8-debugger
-    #"DJ", # flake8-django
-    "EM",  # flake8-errmsg
-    "EXE", # flake8-executable
-    "FA",  # flake8-future-annotations
-    "ISC", # flake8-implicit-str-concat
-    "ICN", # flake8-import-conventions
-    #"INP", # flake8-no-pep420
-    "PIE", # flake8-pie
-    #"T20", # flake8-print
-    #"PYI", # flake8-pyi
-    "PT",  # flake8-pytest-style
-    "Q",   # flake8-quotes
-    "RSE", # flake8-raise
-    "RET", # flake8-return
-    #"SLF", # flake8-self
-    "SLOT", # flake8-slots
-    "SIM",  # flake8-simplify
-    "TID",  # flake8-tidy-imports
-    "TCH",  # flake8-type-checking
-    "INT",  # flake8-gettext
-    "ARG",  # flake8-unused-arguments
-    "PTH",  # flake8-use-pathlib
-    "TD",   # flake8-todos
-    #"FIX" # flake8-fixme
-    "ERA", # eradicate
-    #"PD", # pandas-vet
-    "PGH", # pygrep-hooks
-    "PL",  # Pylint
-    "TRY", # tryceratops
-    "FLY", # flynt
-    #"NPY", # NumPy-specific rules
-    #"AIR", # Airflow
-    "PERF", # Perflint
-    "RUF",  # Ruff-specific rules
-]
-# ignore Checks for print statements ["T201"]
-ignore = [
-    "RUF002", # Checks for ambiguous Unicode characters in docstrings
-]
-
-[tool.ruff.pycodestyle]
-# max-doc-length = 88
-
-[tool.ruff.pydocstyle]
-# Use Google-style docstrings.
-convention = "google"
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
