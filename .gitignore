@@ -168,6 +168,9 @@ Lern_Python.epj
 # Sourcery
 .sourcery.yaml
 
+# Run Code
+tempCodeRunnerFile.md
+
 # Файлы для тестов.
 test.py
 my_test.py
