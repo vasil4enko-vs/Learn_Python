@@ -112,6 +112,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+env.BK/
+venv.BK/
 
 # Rope project settings
 .ropeproject
@@ -137,6 +139,9 @@ cython_debug/
 
 # jedi
 .jedi/
+
+# Folder icon
+.directory
 
 # VS Code
 .vscode/
