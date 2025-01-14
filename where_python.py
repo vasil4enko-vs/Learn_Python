@@ -2,7 +2,10 @@
 
 import sys
 
-py_path = sys.executable
-py_version = sys.version
+# Получаем путь и версию Python
+python_path = sys.executable
+python_version = sys.version
 
-print(f"{py_version}\n{py_path}")
+# Выводим информацию
+print(f"Python Version: {python_version}")
+print(f"Python Path: {python_path}")
