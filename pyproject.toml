@@ -6,9 +6,9 @@ authors = [{ name = "vasil4enko-vs", email = "vvs170@gmail.com" }]
 license = "CC BY 4.0"
 dependencies = []
 readme = "README.md"
-requires-python = ">= 3.12"
+requires-python = ">= 3.13"
 
 [tool.uv]
 managed = true
-virtual = true
+# virtual = true
 dev-dependencies = []
