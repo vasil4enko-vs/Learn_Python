@@ -169,7 +169,7 @@ select = [
     # tryceratops (TRY)
     "TRY",
 ]
-ignore = []
+ignore = ["RUF002"]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
