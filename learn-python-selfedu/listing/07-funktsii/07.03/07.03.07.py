@@ -12,7 +12,7 @@ def get_nod(a: int, b: int) -> int | None:
     :param a: первое натуральное число
     :param b: второе натуральное число
     :return: НОД для 2-х натуральных чисел
-    """  # noqa: RUF002
+    """
     if a < b:
         a, b = b, a
 

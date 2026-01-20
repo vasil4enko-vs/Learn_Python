@@ -148,6 +148,9 @@ cython_debug/
 .VSCodeCounter/
 .tours/
 
+# Zed
+.zed/
+
 # JetBrains PyCharm
 .idea/
 
